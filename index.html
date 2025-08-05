@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BUCENG Approval System</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+    }
+
+    #loader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #ffffff;
+      font-size: 1.5rem;
+      color: #0072C6;
+      flex-direction: column;
+    }
+
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #0072C6;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #content {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="loader">
+    <div class="spinner"></div>
+    <div>Loading BUCENG Approval System...</div>
+  </div>
+
+  <iframe
+    id="content"
+    src="https://script.google.com/macros/s/AKfycbw8J5cdr3Nl7yVtBU-XkoU5TAfh_e3CGL72OE4vGWbCUws05aUpunQ-R1Yf-9A6QQHo/exec"
+    frameborder="0"
+  ></iframe>
+
+  <script>
+    window.onload = function () {
+      setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      }, 3000); // 3 seconds delay
+    };
+  </script>
+</body>
+</html>
