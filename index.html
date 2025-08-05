@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BUCENG Approval System</title>
+  <title>⚙️ | BUCENG ProTrakTor</title>
   <style>
     body, html {
       margin: 0;
@@ -20,24 +20,40 @@
       justify-content: center;
       height: 100vh;
       background-color: #ffffff;
-      font-size: 1.5rem;
       color: #0072C6;
       flex-direction: column;
+      text-align: center;
     }
 
-    .spinner {
-      border: 6px solid #f3f3f3;
-      border-top: 6px solid #0072C6;
-      border-radius: 50%;
-      width: 50px;
+    .protractor-loader {
+      position: relative;
+      width: 100px;
       height: 50px;
-      animation: spin 1s linear infinite;
-      margin-bottom: 15px;
+      border-top: 6px solid #0072C6;
+      border-radius: 100px 100px 0 0;
+      margin-bottom: 20px;
     }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .needle {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 2px;
+      height: 60px;
+      background: #0072C6;
+      transform-origin: bottom center;
+      animation: swing 2s infinite ease-in-out;
+    }
+
+    @keyframes swing {
+      0% { transform: rotate(-35deg); }
+      50% { transform: rotate(35deg); }
+      100% { transform: rotate(-35deg); }
+    }
+
+    #loadingText {
+      font-size: 1.3rem;
+      font-weight: 500;
     }
 
     #content {
@@ -50,8 +66,10 @@
 </head>
 <body>
   <div id="loader">
-    <div class="spinner"></div>
-    <div>Loading BUCENG Approval System...</div>
+    <div class="protractor-loader">
+      <div class="needle"></div>
+    </div>
+    <div id="loadingText">Loading BUCENG ProTrakTor…</div>
   </div>
 
   <iframe
@@ -65,7 +83,7 @@
       setTimeout(() => {
         document.getElementById("loader").style.display = "none";
         document.getElementById("content").style.display = "block";
-      }, 3000); // 3 seconds delay
+      }, 3000); // 3-second loading delay
     };
   </script>
 </body>
